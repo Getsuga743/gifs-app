@@ -14,3 +14,11 @@ export const getGifs = async ({ keyword = 'morty' } = {}, limit = 25) => {
     })
 }
 
+export const getGifById = async ({id = 1} = {}) => {
+    
+    const url = `https://api.giphy.com/v1/gifs/${id}?api_key=${import.meta.env.VITE_API_KEY}`
+    console.log(url)
+    return fetch(url).then(res => res.json()).then(response => {
+        console.log(response)
+    });
+}

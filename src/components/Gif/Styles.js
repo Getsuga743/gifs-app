@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const GifContainer = styled.div`
+export const GifWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
