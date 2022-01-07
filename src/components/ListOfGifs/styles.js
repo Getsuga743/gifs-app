@@ -1,20 +1,42 @@
 import styled from '@emotion/styled'
 
+const grid = {
+    column:{
+        sm:"180px",
+        md:"250px",
+        lg:"300",
+    },
+    rows:{
+        sm:"200px",
+        md:"250px",
+        lg:"210px",
+    },
+    gap:"6px",
+} 
+
 export const GifsContainer = styled.div`
     display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-columns: repeat(3,1fr);
-    justify-content: center;
+    min-height: 100vh;
+    place-content:center;
+    grid-template-columns: repeat(auto-fit, ${grid.column.md});
+    grid-auto-rows: ${grid.rows.md};
+    grid-template-rows:masonry;
+    grid-auto-flow: row dense;
+    grid-gap: ${grid.gap};
+    gap: ${grid.gap};
     align-items: center;
-    grid-gap: 2rem;
-    margin: auto;
-    max-width: 1000px;
+    width:100%;
     @media ${props => props.theme.breakpoints.lg}{
-        grid-template-columns: repeat(2,1fr);
-        max-width: 700px;
+        grid-template-columns:repeat(auto-fit, ${grid.column.lg});
+        grid-auto-rows: ${grid.rows.lg}
     }
     @media ${props => props.theme.breakpoints.sm}{
-        grid-template-columns: 1fr;
-        max-width: 500px;
+        grid-template-columns:repeat(auto-fit, ${grid.column.sm});
+        grid-auto-rows: ${grid.rows.sm}
     }
+`
+export const GifsWrapper = styled.div`
+    margin:2rem 0 0 0;
+    width:100%;
+    heigth:100%;
 `
