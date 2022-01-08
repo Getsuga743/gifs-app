@@ -4,7 +4,7 @@ import { getGifById } from '../../services/getGifs'
 const Detail = ({ params }) => {
     const { id } = params;
     
-    console.log(getGifById({ id }))
+    const gifsContext = useContext(GifsContext)
     return (
         <div>
             {id}
