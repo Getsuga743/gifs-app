@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { getGifs } from '../../services/getGifs'
 import { Gif } from '../Gif'
 import { GifsContainer } from './styles'
 import Spinner from '../Spinner'
+import { useGif } from '../../hooks/useGifs';
 const ListOfGifs = ({ keyword }) => {
-    const [gifs, setGifs] = useState({ loading: false, results: [] });
-    console.log(gifs)
-    useEffect(async () => {
-        setGifs({ loading: true, results: [] });
-        const actualGifs = await getGifs({ keyword });
-        setGifs(() => ({ loading: false, results: actualGifs }));
-    }, [keyword])
-
+  const  {loading,results:gifs} = useGif({keyword})
     return (
         <>
-            {gifs.loading && <Spinner />}
+            {loading && <Spinner />}
             <GifsContainer>
-                {gifs.results.map((gif) => { return <Gif title={gif.title} url={gif.url} id={gif.id} key={gif.id} /> })}
+                {gifs.map((gif) => { return <Gif title={gif.title} url={gif.url} id={gif.id} key={gif.id} /> })}
             </GifsContainer>
         </>
     )
