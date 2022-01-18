@@ -1,4 +1,4 @@
-import styled  from '@emotion/styled';
+import styled from '@emotion/styled';
 
 export const LayoutContainer = styled.div`
     display:flex;
@@ -6,4 +6,4 @@ export const LayoutContainer = styled.div`
     align-items:center;
     max-width:1280px;
     margin:auto;
-`
+`;

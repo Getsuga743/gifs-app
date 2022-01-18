@@ -1,17 +1,20 @@
-import { useTheme } from '@emotion/react'
-import React from 'react'
-import ListOfGifs from '../../components/ListOfGifs'
+import React from 'react';
+import propTypes from 'prop-types';
+import ListOfGifs from '../../components/ListOfGifs';
 import { LayoutContainer } from '../../layout/LayoutContainer';
 
-const SearchResults = ({ params }) => {
-    const { keyword } = params
-    const theme = useTheme();
-    return (
-        <LayoutContainer>
-            <h2>Search results for: {keyword}</h2>
-            <ListOfGifs keyword={keyword} />
-        </LayoutContainer>
-    )
+function SearchResults({ params }) {
+    console.log(params)
+  const { keyword } = params;
+  return (
+    <LayoutContainer>
+      <h2>
+        Search results for:
+        {keyword}
+      </h2>
+      <ListOfGifs keyword={keyword} />
+    </LayoutContainer>
+  );
 }
 
 export default SearchResults;
