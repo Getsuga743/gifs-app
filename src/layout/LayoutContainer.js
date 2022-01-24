@@ -6,4 +6,5 @@ export const LayoutContainer = styled.div`
     align-items:center;
     max-width:1280px;
     margin:auto;
+    padding: 0 2rem;
 `;

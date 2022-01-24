@@ -15,7 +15,6 @@ function App() {
           <Route path="/search/:keyword" component={SearchResults} />
           <Route path="/gif/:id" component={Detail} />
         </GifsContextProvider>
-
       </Switch>
     </div>
   );

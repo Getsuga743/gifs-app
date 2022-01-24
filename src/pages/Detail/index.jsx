@@ -1,15 +1,14 @@
-import React from 'react'
-import { getGifById } from '../../services/getGifs'
+import React from 'react';
 
-const Detail = ({ params }) => {
-    const { id } = params;
-    
-    const gifsContext = useContext(GifsContext)
-    return (
-        <div>
-            {id}
-        </div>
-    )
+function Detail({ params }) {
+  const { id } = params;
+
+  const gifsContext = useContext(GifsContext);
+  return (
+    <div>
+      {id}
+    </div>
+  );
 }
 
-export default Detail
+export default Detail;

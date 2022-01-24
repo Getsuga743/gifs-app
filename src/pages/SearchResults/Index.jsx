@@ -1,18 +1,32 @@
-import React from 'react';
-import propTypes from 'prop-types';
+import React, { useEffect, useRef, useCallback } from 'react';
+import debounce from 'just-debounce-it';
 import ListOfGifs from '../../components/ListOfGifs';
 import { LayoutContainer } from '../../layout/LayoutContainer';
+import { useNearScreen } from '../../hooks/useNearScreen';
+import useGif from '../../hooks/useGifs';
 
 function SearchResults({ params }) {
-    console.log(params)
   const { keyword } = params;
+  const { loading, gifs, setPage } = useGif({ keyword });
+  const showRef = useRef();
+  const { show } = useNearScreen({ externalRef: loading ? null : showRef, once: false });
+
+  const debounceHandleNextPage = useCallback(debounce(
+    () => setPage((prevPage) => prevPage + 1),
+    500,
+  ), [setPage]);
+
+  useEffect(() => {
+    if (show) debounceHandleNextPage();
+  }, [show, setPage]);
   return (
     <LayoutContainer>
-      <h2>
+      <h2 style={{ textTransform: 'capitalize' }}>
         Search results for:
-        {keyword}
+        {` ${decodeURI(keyword)}`}
       </h2>
-      <ListOfGifs keyword={keyword} />
+      <ListOfGifs gifs={gifs} />
+      <div style={{ display: 'block', height: '1rem', width: '100%' }} ref={showRef} />
     </LayoutContainer>
   );
 }

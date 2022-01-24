@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { SearchBarContainer } from './styles';
 
-function Search({ handleSubmit }) {
+function Search({ onSubmit }) {
   const [value, setValue] = useState('');
-  const onSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    handleSubmit(value);
+    onSubmit(value);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor="search">
-        <input
-          name="search"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button type="submit">
-          <AiOutlineSearch />
-        </button>
-      </label>
-    </form>
+    <SearchBarContainer>
+      <form onSubmit={handleOnSubmit}>
+        <label htmlFor="search">
+          <input
+            name="search"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Search a gif here..."
+          />
+          <button type="submit">
+            <AiOutlineSearch />
+          </button>
+        </label>
+      </form>
+    </SearchBarContainer>
+
   );
 }
 
-export default Search;
+export default React.memo(Search);

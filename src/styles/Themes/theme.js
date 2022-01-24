@@ -1,24 +1,24 @@
 export const bps = {
-    greaterThanMobile: '@media screen and (min-width: 55rem)'
-}
-
+  greaterThanMobile: '@media screen and (min-width: 55rem)',
+};
 
 export const theme = {
-    fonts:{
-        main: 'Inter, sans-serif',
-    },
-    colors: {
-        primary1: "hsl(204,23.8%,95.9%)",
-        background1: "#0F1624",
-        accent1: "hsl(34.9,98.6%,72.9%)",
-        button: "hsl(205.1,100%,36.1%)",
-        background2: "hsl(232.7,27.3%,23.7%)",
-    },
-    // Breakpoints for responsive design
-    breakpoints: {
-        sm: 'screen and (max-width: 640px)',
-        md: 'screen and (max-width: 768px)',
-        lg: 'screen and (max-width: 1024px)',
-        xl: 'screen and (max-width: 1280px)'
-    },
-}
+  fonts: {
+    main: 'Inter, sans-serif',
+  },
+  colors: {
+    font1: '#FFFF',
+    background1: '#0F1624',
+    accent1: '#8F3985',
+    accent2: '#98DFEA',
+    button: '#006BB8',
+    itemColors: ['#8F3985', '#FC440F', '#1EFFBC', '#D7263D', '#006BB8 '],
+  },
+  // Breakpoints for responsive design
+  breakpoints: {
+    sm: 'screen and (max-width: 640px)',
+    md: 'screen and (max-width: 768px)',
+    lg: 'screen and (max-width: 1024px)',
+    xl: 'screen and (max-width: 1280px)',
+  },
+};

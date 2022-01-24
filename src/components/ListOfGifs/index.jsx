@@ -1,12 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Gif } from '../Gif';
+import Gif from '../Gif';
 import { GifsContainer } from './styles';
 import Spinner from '../Spinner';
-import useGif from '../../hooks/useGifs';
 
-function ListOfGifs({ keyword }) {
-  const { loading, results: gifs } = useGif({ keyword });
+function ListOfGifs({ gifs, loading }) {
   return (
     <>
       {loading && <Spinner />}
@@ -16,9 +13,5 @@ function ListOfGifs({ keyword }) {
     </>
   );
 }
-
-ListOfGifs.propTypes = {
-  keyword: PropTypes.string.isRequired,
-};
 
 export default ListOfGifs;

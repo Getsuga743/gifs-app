@@ -5,10 +5,7 @@ import Category from '../Category/Category';
 export default function TrendingSearches() {
   const [trends, setTrends] = useState([]);
   useEffect(() => {
-    const controller = new AbortController();
-    getTrendingTerms({ signal: controller.signal }).then((data) => setTrends(data));
-
-    return () => controller.abort();
-  });
+    getTrendingTerms().then((data) => setTrends(data));
+  }, []);
   return <Category name="Tendecies" options={trends} />;
 }
