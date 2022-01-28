@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
-import React, { useCallback } from 'react';
-import { useLocation } from 'wouter';
+import React from 'react';
 import styled from '@emotion/styled';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import { Helmet } from 'react-helmet';
 import useGif from '../../hooks/useGifs';
 import { LayoutContainer } from '../../layout/LayoutContainer';
 import { GifsContainer } from '../../components/ListOfGifs/styles';
 import Gif from '../../components/Gif';
 import { LazyTrending } from '../../components/TrendingSearches';
+import Header from '../../components/Header/Header';
 
 const ContentContainer = styled.div`
   width:100%;
@@ -30,18 +30,13 @@ const ContentContainer = styled.div`
 `;
 
 function Home() {
-  const [, pushLocation] = useLocation();
-  const onSubmit = useCallback((value) => {
-    pushLocation(`/search/${value}`);
-  }, [pushLocation]);
-
   const { gifs } = useGif();
   return (
     <LayoutContainer>
-      <header>
-        <h1 style={{ fontSize: '6rem', textAlign: 'center' }}>Giffy</h1>
-        <SearchBar onSubmit={onSubmit} />
-      </header>
+      <Helmet>
+        <title>Home | Giffy</title>
+      </Helmet>
+      <Header />
       <h2 style={{ textAlign: 'start', width: '100%', margin: '1rem 0' }}>Your Latest Search</h2>
       <ContentContainer>
         <GifsContainer>
@@ -49,9 +44,7 @@ function Home() {
         </GifsContainer>
         <LazyTrending />
       </ContentContainer>
-
     </LayoutContainer>
-
   );
 }
 

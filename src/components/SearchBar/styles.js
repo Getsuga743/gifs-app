@@ -1,21 +1,24 @@
 import styled from '@emotion/styled';
 
 export const SearchBarContainer = styled.div`
-    margin:1rem;
+    display:flex;
+    margin:2rem 0;
     > form  {
         background-color:white;
         border-radius:5px;
         overflow:hidden;
+        width:100%;
     > label{
         display: flex;
         flex-direction: row-reverse;
         min-height:3rem;
         width:100%;
             > input{
-                width: 75%;
+                width: 100%;
                 padding: 1rem;
             }
             > button {
+                justify-self:start;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -23,7 +26,7 @@ export const SearchBarContainer = styled.div`
                 border:none;
                 cursor: pointer;
                 color:white;
-                width:25%;
+                width:10rem;
             }
             > button:hover{
                 filter: brightness(1.2);
