@@ -1,7 +1,6 @@
 /* eslint-disable no-tabs */
 import styled from '@emotion/styled';
 import { Link } from 'wouter';
-import { bps } from '../../styles/Themes/theme';
 import getItemColors from '../../styles/utils/getItemColors';
 
 export const CategoryTitle = styled.h3`
@@ -17,8 +16,9 @@ export const CategoryList = styled.ul`
     flex-wrap:wrap;
     padding:0;
     margin:0;
-    ${bps.greatherThanMobile} {
-        justify-content:flex-end;
+    justify-content:flex-end;
+     @media ${(props) => props.theme.breakpoints.lg} {
+        justify-content:flex-start;
     }
 `;
 
@@ -30,15 +30,12 @@ export const CategoryListItem = styled.li`
   border-radius:5px;
   font-weight:bold;
   text-transform:capitalize;
-  ${bps.greatherThanMobile} {
-    padding: 1rem;
-	  margin: 0 2rem;
-  }
+  background-color: ${(props) => getItemColors(props.theme.colors.itemColors)};
+  margin:0.5rem;
   transition:all 10ms;
   &:hover{
     cursor: pointer;
-    background-color: ${(props) => getItemColors(props.theme.colors.itemColors)};
-
+    color:${(props) => props.theme.colors.background1}
   }
 `;
 
